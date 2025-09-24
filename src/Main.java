@@ -3,13 +3,6 @@ import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.Vector;
 
-/*
-    TODO: 1- REFATORAR
-    2 - CRIAR UMA FUNÇÃO PARA VERIFICAR SE É INTEIRO
- */
-
-/*
- */
 public class Main {
 
     public static void main(String[] args) {
@@ -18,6 +11,7 @@ public class Main {
 
         System.out.println("Boas vindas ao sistema de pedidos do Chez Gourmet!");
 
+        // Lista de pedidos registrados
         Vector<Pedidos> listOrder = new Vector<>();
         int id = 0;
 
@@ -32,7 +26,7 @@ public class Main {
                 option = 5;
             }
 
-
+            // Lidar com as opções do menu
             switch (option) {
                 case 1:
                     System.out.println("Pedido N°: " + (id + 1));
@@ -52,7 +46,7 @@ public class Main {
                     int priceItem = scanner.nextInt();
                     clientOrders.SetItem(nameItem, priceItem);
 
-
+                    // Caso o cliente queira adicionar mais itens.
                     while (notFinish) {
 
                         System.out.println("Escolha uma das opções:");
@@ -60,7 +54,6 @@ public class Main {
                         System.out.println("2. Encerrar o pedido");
                         System.out.print("Opção: ");
 
-                        //subOption = scanner.nextInt();
                         try {
                             subOption = scanner.nextInt();
                         } catch (Exception e) {
@@ -70,6 +63,7 @@ public class Main {
                         }
 
                         if (subOption == 1) {
+                            // Adiciona outro item ao pedido
                             System.out.print("- Nome do item: ");
                             nameItem = scanner.next();
 
@@ -79,7 +73,8 @@ public class Main {
                                 clientOrders.SetItem(nameItem, priceItem);
 
                         } else if (subOption == 2) {
-                                 notFinish = false;
+                                // Encerra o pedido e o imprime
+                                notFinish = false;
                                 System.out.println("\n========================================");
                                 System.out.println(" Restaurante Chez Gourmet");
                                 System.out.println("========================================");
@@ -114,6 +109,7 @@ public class Main {
                     break;
 
                 case 2:
+                    // Remover um pedido já existente
                     System.out.print("Qual o número de pedido que você deseja remover? ");
                     int removeOrder = scanner.nextInt();
                     --removeOrder;
@@ -125,6 +121,7 @@ public class Main {
                     }
                     break;
                 case 3:
+                    // Listar todos os pedidos registrados
                     for (Pedidos pedido : listOrder) {
                         System.out.println("========================================");
                         System.out.println("Pedido N°: " + (pedido.getId() + 1));
@@ -146,6 +143,7 @@ public class Main {
 
                     break;
                 case 4:
+                    // Encerrar programa
                     System.out.println("========================================");
                     System.out.println("Compra finalizada!");
                     System.out.println("Volte sempre!");

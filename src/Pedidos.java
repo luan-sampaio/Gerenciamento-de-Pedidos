@@ -31,7 +31,6 @@ public class Pedidos {
     }
 
     public void SetItem(String name, int x){
-        //listItem = new LinkedList<>();
         item = new Item(name, x);
         listItem.add(item);
     }
